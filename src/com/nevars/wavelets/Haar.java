@@ -6,6 +6,18 @@ import static java.lang.Math.round;
  */
 public class Haar {
 
+    public float[] directHaar(int matrix[][][], int row, int begin, int end, int colour) {
+        int ind = 0;
+        for (int i = begin; i < end; i++) {
+            coeff[i] = matrix[row][i][colour];
+        }
+        for (int i = 0; i < end / 2; i++) {
+            c[2 * i] = (float)((coeff[2 * i] + coeff[2 * i + 1]) / 2.0);
+            c[2 * i + 1] = (float)((coeff[2 * i] - coeff[2 * i + 1]) / 2.0);
+        }
+        return c;
+    }
+
     public float[][] directTransformation(int matrix[][][], int row, int column, int colour) {
         int ind = 0;
         for (int r = row; r < row + BLOCK; r++) { // копируем в одномерный массив
@@ -48,7 +60,7 @@ public class Haar {
     }
 
     private final int BLOCK = 8;
-    private float coeff[] = new float[BLOCK * BLOCK];
+    private int coeff[] = new int[BLOCK * BLOCK];
     private float c[] = new float[BLOCK * BLOCK];
     private int a[] = new int[BLOCK * BLOCK];
     private float result[][] = new float[BLOCK][BLOCK];

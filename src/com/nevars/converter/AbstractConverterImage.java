@@ -1,5 +1,6 @@
 package com.nevars.converter;
 
+import com.nevars.DCT;
 import com.nevars.convolutions.ZigZag;
 import com.nevars.huffman.Huffman;
 import com.nevars.quant.Quant;
@@ -20,4 +21,5 @@ public class AbstractConverterImage {
     protected Quant quant;
     protected int matrix[][][];
     protected Haar haar;
+    protected DCT dct;
 }

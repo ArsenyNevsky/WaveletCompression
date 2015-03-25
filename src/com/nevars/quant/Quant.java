@@ -11,7 +11,20 @@ public class Quant {
         block8x8 = new int[BLOCK][BLOCK];
     }
 
+
+
     public int[][] directQuant(float matrix[][]) {
+        int x = 0;
+        int y = 0;
+        for (int i = 0; i < BLOCK; i++) {
+            for (int j = 0; j < BLOCK; j++) {
+                block8x8[i][j] = round(matrix[i][j] / tableQuant[i][j]);
+            }
+        }
+        return block8x8;
+    }
+
+    public int[][] directQuant(int matrix[][]) {
         int x = 0;
         int y = 0;
         for (int i = 0; i < BLOCK; i++) {

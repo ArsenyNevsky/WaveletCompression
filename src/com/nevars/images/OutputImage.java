@@ -18,7 +18,7 @@ public class OutputImage extends AbstractImage {
     }
 
     public void saveImage() {
-        System.out.println("\n----------START SAVING----------");
+        System.out.println("            START SAVING");
         int ind = 0;
         for (int row = 0; row < HEIGHT; row++) {
             for (int col = 0; col < WIDTH; col++) {
@@ -33,8 +33,7 @@ public class OutputImage extends AbstractImage {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("----------END SAVING----------\n");
-        System.out.println("END WORKING OF ALGORITHMS.\n");
+        System.out.println("            END SAVING");
     }
 
     private void convertYCBCRtoRGB(double Y, double Cb, double Cr) {

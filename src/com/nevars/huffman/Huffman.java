@@ -26,10 +26,10 @@ public class Huffman {
         code_data_content();
         double resultBefore = getBits(str.toString());
         double resultAfter = mydata_coded.length();
-        System.out.printf("Length of initial string = %.0f bits", resultBefore);
-        System.out.printf("\nLength of compressed string = %.0f bits", resultAfter);
-        System.out.println("\nHow much we have compressed = " + Math.round(resultBefore / resultAfter));
-        System.out.println("\nKoeff of compression = " + Math.round((resultAfter / resultBefore) * 100) + "%");
+        System.out.printf("            Length of initial string = %.0f b", resultBefore);
+        System.out.printf("\n            Length of compressed string = %.0f b", resultAfter / 8);
+        System.out.println("\n            How much we have compressed = " + Math.round(resultBefore / resultAfter));
+        System.out.println("            Koeff of compression = " + Math.round((resultAfter / resultBefore) * 100) + "%");
         write_Compressed();
     }
 
