@@ -1,10 +1,32 @@
 package com.nevars.wavelets;
 
+import java.util.ArrayList;
+
 import static java.lang.Math.round;
 /**
  * Created by erafiil on 25.03.15.
  */
 public class Haar {
+
+    public ArrayList<Integer> directHaar(ArrayList<Integer> inputStream) {
+        ArrayList<Integer> outputStream = new ArrayList<>(inputStream.size());
+        final int SIZE = inputStream.size() / 2;
+        for (int i = 0; i < SIZE; i++) {
+            outputStream.add(2 * i, (int) round((inputStream.get(2 * i) + inputStream.get(2 * i + 1)) / 2.0));
+            outputStream.add(2 * i, (int) round((inputStream.get(2 * i) - inputStream.get(2 * i + 1)) / 2.0));
+        }
+        return outputStream;
+    }
+
+    public ArrayList<Integer> converseHaar(ArrayList<Integer> inputStream) {
+        ArrayList<Integer> outputStream = new ArrayList<>(inputStream.size());
+        final int SIZE = inputStream.size() / 2;
+        for (int i = 0; i < SIZE; i++) {
+            outputStream.add(2 * i, round(inputStream.get(2 * i) + inputStream.get(2 * i + 1)));
+            outputStream.add(2 * i, round(inputStream.get(2 * i) - inputStream.get(2 * i + 1)));
+        }
+        return outputStream;
+    }
 
     public float[] directHaar(int matrix[][][], int row, int begin, int end, int colour) {
         int ind = 0;

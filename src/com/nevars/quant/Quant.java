@@ -18,7 +18,8 @@ public class Quant {
         int y = 0;
         for (int i = 0; i < BLOCK; i++) {
             for (int j = 0; j < BLOCK; j++) {
-                block8x8[i][j] = round(matrix[i][j] / tableQuant[i][j]);
+                //block8x8[i][j] = round(matrix[i][j] / tableQuant[i][j]);
+                block8x8[i][j] = round(matrix[i][j] / 1);
             }
         }
         return block8x8;
@@ -30,6 +31,7 @@ public class Quant {
         for (int i = 0; i < BLOCK; i++) {
             for (int j = 0; j < BLOCK; j++) {
                 block8x8[i][j] = round(matrix[i][j] / tableQuant[i][j]);
+                block8x8[i][j] = round(matrix[i][j] / 1);
             }
         }
         return block8x8;
@@ -38,7 +40,8 @@ public class Quant {
     public int[][] converseQuant(int matrix[][]) {
         for (int i = 0; i < BLOCK; i++) {
             for (int j = 0; j < BLOCK; j++) {
-                block8x8[i][j] = matrix[i][j] * tableQuant[i][j];
+                //block8x8[i][j] = matrix[i][j] * tableQuant[i][j];
+                block8x8[i][j] = matrix[i][j] * 1;
             }
         }
         return block8x8;

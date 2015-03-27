@@ -1,17 +1,18 @@
 package com.nevars.huffman;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Collections;
 
 public class Huffman {
 
-    public void compress(int array[]) {
+    public void compress(ArrayList<Integer> array) {
         char symbol;
         StringBuilder str = new StringBuilder();
         mydata_str = new StringBuilder("");
-        for (int item : array) {
-            item += 150;
-            symbol = (char) item;
+        for (int i : array) {
+            int item = i + 150;
+            symbol = (char)item;
             str.append(item);
             if (mydata_str == null) {
                 mydata_str.append(Character.toString(symbol));
