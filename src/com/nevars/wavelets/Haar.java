@@ -81,9 +81,19 @@ public class Haar {
         return matrix;
     }
 
+    public int[][] doQuantization(int R, int[][] block) {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                block[i][j] /= (1 + (i + j) * R);
+            }
+        }
+        return block;
+    }
+
     private final int BLOCK = 8;
     private int coeff[] = new int[BLOCK * BLOCK];
     private float c[] = new float[BLOCK * BLOCK];
     private int a[] = new int[BLOCK * BLOCK];
     private float result[][] = new float[BLOCK][BLOCK];
+
 }

@@ -1,47 +1,61 @@
 package com.nevars;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-import static java.lang.Math.round;
+import java.util.Arrays;
 
 public class Main {
 
-    public static String byteToString(int b) {
-        return String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0');
+    private static int N = 100;
+
+    private double initC(double f[], int x[]) {
+        double c = 0;
+        for (int i = 0; i < N - 2; i++) {
+            c += (f[x[i + 1]] - f[x[i]]) / (x[i + 1] - x[i]);
+        }
+        c = Math.abs(c);
+        return c / (double)N;
     }
 
+    private double initS(double f[], int x[]) {
+        int ind[] = new int[N];
+        int S = 0;
+        double P = 0.5;
+        int h = 1;
+        double C = initC(f, x);
+        int g = 10;
+        return Math.max(1, S);
+    }
+
+    private int[] initNet(int x[], double f[]) {
+        int ind[] = new int[N];
+        int index = 0;
+        Arrays.fill(ind, 0);
+        ind[0] = 1;
+        ind[1] = 1;
+        ind[2] = 1;
+        int S = 3;
+        double P = 0.5;
+        int h = 1;
+        double C;
+        int g = 7;
+        //int g = 12;
+        while (S < N) {
+            //S = initS(f, x);
+        }
+        return new int[9];
+    }
+    
     public static void main(String[] args) throws IOException {
-        Coder coder = new Coder("image6.bmp");
-        coder.compress();
-        //coder.compressing();
-
-        Decoder decoder = new Decoder();
-        decoder.decompress();
-        //decoder.decompressing();
-
-        List<Integer> l = new ArrayList<>();
-        l.add(100);
-        l.add(254);
-        l.add(-12);
-        l.add(4);
-        l.add(5);
-        l.add(0);
-
-        int min = Collections.min(l);
-        int max = Collections.max(l);
-        System.out.println("Max = " + max + "\nMin = " + min);
-        float array[] = new float[l.size()];
-        for (int i = 0; i < l.size(); i++) {
-            array[i] = round(((l.get(i) - min) / (float) (max - min))*255);
-            System.out.print(array[i] + " ");
-
+        int x[] = new int[N];
+        for (int i = 0; i < N; i++) {
+            x[i] = i + 1;    
         }
-        System.out.println();
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(round(array[i] * (max - min) / 255 + min)+ " ");
+        
+        double c[] = new double[N];
+        for (int i = 0; i < N; i++) {
+            c[i] = Math.cos(i);
         }
+
+
     }
 }
