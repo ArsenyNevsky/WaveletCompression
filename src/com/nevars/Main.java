@@ -8,10 +8,10 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        Coder coder = new Coder("image.bmp");
+        Coder coder = new Coder("image0.bmp");
         coder.compress();
 
-        Decoder decoder = new Decoder();
-        decoder.decompress();
+        //Decoder decoder = new Decoder();
+        //decoder.decompress();
     }
 }

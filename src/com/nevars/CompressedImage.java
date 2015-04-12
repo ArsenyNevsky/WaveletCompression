@@ -31,29 +31,10 @@ public class CompressedImage implements Serializable {
         this.width = width;
     }
 
-    public String getTable() {
-        return table;
-    }
-
-    public void setTable(String table) {
-        this.table = table;
-    }
-
-    public String getTree() {
-        return tree;
-    }
-
-    public void setTree(String tree) {
-        this.tree = tree;
-    }
-
     private String nameImage;
 
     private int height;
 
     private int width;
 
-    private String table;
-
-    private String tree;
 }

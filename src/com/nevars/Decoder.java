@@ -6,7 +6,6 @@ package com.nevars;
 
 import com.nevars.converter.AbstractConverterImage;
 import com.nevars.convolutions.ZigZag;
-import com.nevars.huffman.Huffman;
 import com.nevars.images.OutputImage;
 import com.nevars.quant.Quant;
 import com.nevars.wavelets.Haar;
@@ -20,14 +19,15 @@ import java.io.ObjectInputStream;
  */
 public class Decoder extends AbstractConverterImage {
 
-    public Decoder() {
+    public Decoder() throws IOException {
         quant       = new Quant();
         zigZag      = new ZigZag();
         haar        = new Haar();
-        huffman     = new Huffman();
+        huffman     = new com.nevars.huffmanZiP.Huffman();
         dct         = new DCT();
-        inputStream = huffman.decompressedStream();
-        try (FileInputStream fis = new FileInputStream("RESULT.nev");
+        huffman.decompress();
+        inputStream = huffman.getArray();
+        try (FileInputStream fis = new FileInputStream("imageProperties.attrib");
              ObjectInputStream ois = new ObjectInputStream(fis)) {
             compressedImage = (CompressedImage)ois.readObject();
 

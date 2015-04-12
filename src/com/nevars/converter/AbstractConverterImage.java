@@ -2,7 +2,7 @@ package com.nevars.converter;
 
 import com.nevars.DCT;
 import com.nevars.convolutions.ZigZag;
-import com.nevars.huffman.Huffman;
+import com.nevars.huffmanZiP.Huffman;
 import com.nevars.quant.Quant;
 import com.nevars.wavelets.Haar;
 
@@ -16,6 +16,7 @@ public class AbstractConverterImage {
     protected final short COUNT_COLOR_LAYS = 3;
     protected int HEIGHT;
     protected int WIDTH;
+    //protected Huffman huffman;
     protected Huffman huffman;
     protected ZigZag zigZag;
     protected Quant quant;
